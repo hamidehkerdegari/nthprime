@@ -7,7 +7,7 @@ __version__ = "1.0.1"
 __maintainer__ = "Saeid Mokaram"
 __email__ = "saeid.mokaram@gmail.com"
 __status__ = "Production"
-#==============================================
+# ==============================================
 
 from flask import Flask, make_response, jsonify
 import time
@@ -18,7 +18,7 @@ primes_dict = {}    # Dictionary to store and fast-retrieve all primes for futur
 
 @app.route('/primes/api/v1.0/nthprime/<int:nth>', methods=['GET'])
 def get_nthprime(nth):
-    if nth<=0 or nth>10000000:   # Invalid input; Generating a 400 (Bad Request) JSON response.
+    if nth <= 0 or nth > 10000000:   # Invalid input; Generating a 400 (Bad Request) JSON response.
         return make_response(jsonify({'error': 'Invalid Entry'}), 400)
 
     start_time = time.time()    # Measuring the elapsed time
@@ -49,7 +49,7 @@ def get_nthprime(nth):
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
-#==============================================
+# ==============================================
 
 if __name__ == '__main__':
     app.run(debug=False)
