@@ -1,21 +1,13 @@
 # NthPrime WebAPI
-Finding the 'n'th prime number.
-
-version: 1.0.1
-
-author: Saeid Mokaram
-
-copyright: Copyright 2017
-
-credits: Saeid Mokaram
-
-license: GPL
-
-maintainer: Saeid Mokaram
-
-email: saeid.mokaram@gmail.com
-
-status: Production
+- Finding the 'n'th prime number.
+- version: 1.0.1
+- author: Saeid Mokaram
+- copyright: Copyright 2017
+- credits: Saeid Mokaram
+- license: GPL
+- maintainer: Saeid Mokaram
+- email: saeid.mokaram@gmail.com
+- status: Production
 
 # Description
 This repository contains a Python-based web service/API for calculating the nth prime number.
@@ -40,11 +32,9 @@ JSON response format:
     }
 
 # System requirements:
-Linux OS.
-
-Python2/3
-
-Flask (a micro web framework in Python): to create a web application.
+- Linux OS.
+- Python2/3
+- Flask (a micro web framework in Python): to create a web application.
 
 # To run this application:
 Install Flask: http://flask.pocoo.org/docs/0.12/installation/
