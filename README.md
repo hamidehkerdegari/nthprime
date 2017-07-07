@@ -11,7 +11,7 @@ maintainer: Saeid Mokaram
 email: saeid.mokaram@gmail.com
 status: Production
 
-#------------------------------------------------
+#Description
 This repository contains a Python-based web service/API for calculating the nth prime number.
 In the current production, the application is intended to be executed on a single-core embedded device like a Raspberry Pi, although it can also be executed on different Linux-based OSs.
 The application was developed in PyCharm (Community Edition 2016.3.1) on an Ubuntu 16.04 LTS 64-Bit.
