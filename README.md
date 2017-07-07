@@ -30,24 +30,33 @@ Linux OS.
 
 Python2/3
 
-Flask (a micro web framework in Python): to create a web application).
+Flask (a micro web framework in Python): to create a web application.
 
 # To run this application:
 Install Flask: http://flask.pocoo.org/docs/0.12/installation/
+
 Set permissions:
+
     $ chmod a+x nthprime.py
+
 Run application:
+    
     $ ./nthprime.py~/anaconda3/bin/python nthprime.py 
       * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 
-Launch your web browser (FireFox) and type for example: http://127.0.0.1:5000/primes/api/v1.0/nthprime/152
+Launch your web browser (FireFox) and type for example:
+
+    http://127.0.0.1:5000/primes/api/v1.0/nthprime/152
+
 You will receive a JASON responce of:
+    
     elapsed_time:    0.007896661758422852
     nthprime:    881
 
 # The implementation approach:
 Fact: Any number that is not prime is divisible by one prime that comes before it in the number series.
 Given n primes, we just need to check the divisibility of the numbers after the nth prime with all the n primes until finding the n+1th prime.
+
 For optimization purposes, all the calculated primes are stored in a Dictionary to be used for future queries.
 
 # Further improvements:
