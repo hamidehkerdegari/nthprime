@@ -48,7 +48,7 @@ Launch your web browser (FireFox) and type for example:
 
     http://127.0.0.1:5000/primes/api/v1.0/nthprime/152
 
-You will receive a JASON responce of:
+You will receive a JSON responce of:
     
     elapsed_time:    0.007896661758422852
     nthprime:    881
