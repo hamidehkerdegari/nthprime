@@ -11,7 +11,7 @@ maintainer: Saeid Mokaram
 email: saeid.mokaram@gmail.com
 status: Production
 
-#Description
+# Description
 This repository contains a Python-based web service/API for calculating the nth prime number.
 In the current production, the application is intended to be executed on a single-core embedded device like a Raspberry Pi, although it can also be executed on different Linux-based OSs.
 The application was developed in PyCharm (Community Edition 2016.3.1) on an Ubuntu 16.04 LTS 64-Bit.
@@ -21,17 +21,18 @@ The application implements a REST service that will reply the nth prime and elap
     http://[hostname]:5000/primes/api/v1.0/nthprime/[n]
 
 example for running on local host:
+
     http://127.0.0.1:5000/primes/api/v1.0/nthprime/152
 
-#------------------------------------------------
-System requirements:
+
+# System requirements:
 Linux OS.
+
 Python2/3
+
 Flask (a micro web framework in Python): to create a web application).
 
-#------------------------------------------------
-To run this application:
-
+# To run this application:
 Install Flask: http://flask.pocoo.org/docs/0.12/installation/
 Set permissions:
     $ chmod a+x nthprime.py
@@ -44,15 +45,12 @@ You will receive a JASON responce of:
     elapsed_time:    0.007896661758422852
     nthprime:    881
 
-#------------------------------------------------
-The implementation approach:
+# The implementation approach:
 Fact: Any number that is not prime is divisible by one prime that comes before it in the number series.
 Given n primes, we just need to check the divisibility of the numbers after the nth prime with all the n primes until finding the n+1th prime.
 For optimization purposes, all the calculated primes are stored in a Dictionary to be used for future queries.
 
-#------------------------------------------------
-Further improvements:
-
+# Further improvements:
 All the calculated primes can be saved in a file for future use. So after re-running the application or transferring the application to other systems/servers, there will be no need for recalculating them.
 
 Finding the next prime requires comparing every new number with all the previously found primes. This process can be parallelized on a system with multiple cores (CPUs) by first, getting the number of CPUs on the local machine and then, dividing the search space of all the previously found primes. In the case that non of the processing threads find the number divisible by any of the previous primes, we have found the next prime number.
