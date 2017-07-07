@@ -21,7 +21,7 @@ def get_nthprime(nth):
     if nth<=0 or nth>10000000:   # Invalid input; Generating a 400 (Bad Request) JSON response.
         return make_response(jsonify({'error': 'Invalid Entry'}), 400)
 
-    start_time = time.time()    # mesuring the elapsed time
+    start_time = time.time()    # Measuring the elapsed time
 
     primes_dict[1] = 2  # First prime number.
 
