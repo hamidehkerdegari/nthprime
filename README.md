@@ -14,8 +14,10 @@ status: Production
 # Description
 This repository contains a Python-based web service/API for calculating the nth prime number.
 In the current production, the application is intended to be executed on a single-core embedded device like a Raspberry Pi, although it can also be executed on different Linux-based OSs.
+
 The application was developed in PyCharm (Community Edition 2016.3.1) on an Ubuntu 16.04 LTS 64-Bit.
 The application can be called with a single argument, 'n' (which can be any integer up to 10 million), and will return the 'n'th prime number.
+
 The application implements a REST service that will reply the nth prime and elapsed_time (as a JSON data) via an HTTP GET method with a URL format of:
 
     http://[hostname]:5000/primes/api/v1.0/nthprime/[n]
@@ -24,6 +26,12 @@ example for running on local host:
 
     http://127.0.0.1:5000/primes/api/v1.0/nthprime/152
 
+JSON response format:
+
+    {
+      "elapsed_time": [float], 
+      "nthprime": [int]
+    }
 
 # System requirements:
 Linux OS.
