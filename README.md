@@ -2,13 +2,19 @@
 Finding the 'n'th prime number.
 
 version: 1.0.1
+
 author: Saeid Mokaram
+
 copyright: Copyright 2017
+
 credits: Saeid Mokaram
+
 license: GPL
 
 maintainer: Saeid Mokaram
+
 email: saeid.mokaram@gmail.com
+
 status: Production
 
 # Description
@@ -56,7 +62,7 @@ Launch your web browser (FireFox) and type for example:
 
     http://127.0.0.1:5000/primes/api/v1.0/nthprime/152
 
-You will receive a JSON responce of:
+You will receive a JSON response of:
     
     elapsed_time:    0.007896661758422852
     nthprime:    881
