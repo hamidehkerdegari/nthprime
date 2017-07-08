@@ -35,12 +35,12 @@ def get_nthprime(nth):
             k = 1
             while k <= j:   # Searching for next prime.
                 if pri_tmp % primes_dict[k] == 0:
-                    pri_tmp+=2
+                    pri_tmp+=1
                     k=1
                 else:
                     k+=1
             primes_dict[j + 1]= pri_tmp
-            pri_tmp += 2
+            pri_tmp += 1
 
         elapsed_time = time.time() - start_time
         return jsonify({'nthprime': primes_dict[nth], 'elapsed_time': elapsed_time})
