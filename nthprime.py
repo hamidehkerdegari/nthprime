@@ -24,23 +24,24 @@ def get_nthprime(nth):
     start_time = time.time()    # Measuring the elapsed time
 
     primes_dict[1] = 2  # First prime number.
+    primes_dict[2] = 3  # Second prime number.
 
     if nth in primes_dict:    # Check if nth prime has already calculated.
         elapsed_time = time.time() - start_time
         return jsonify({'nthprime': primes_dict[nth], 'elapsed_time': elapsed_time})
     else:
         m = max(primes_dict)    # The max calculated prime so far
-        pri_tmp = int(primes_dict[m]) + 1
+        pri_tmp = int(primes_dict[m]) + 2
         for j in range(m, nth):
             k = 1
             while k <= j:   # Searching for next prime.
                 if pri_tmp % primes_dict[k] == 0:
-                    pri_tmp+=1
+                    pri_tmp+=2
                     k=1
                 else:
                     k+=1
             primes_dict[j + 1]= pri_tmp
-            pri_tmp += 1
+            pri_tmp += 2
 
         elapsed_time = time.time() - start_time
         return jsonify({'nthprime': primes_dict[nth], 'elapsed_time': elapsed_time})
