@@ -18,11 +18,11 @@ The application can be called with a single argument, 'n' (which can be any inte
 
 The application implements a REST service that will reply the nth prime and elapsed_time (as a JSON data) via an HTTP GET method with a URL format of:
 
-    http://[hostname]:5000/primes/api/v1.0/nthprime/[n]
+    http://[hostname]:5000/primes/api/v[version_no]/nthprime/[n]
 
 example for running on local host:
 
-    http://127.0.0.1:5000/primes/api/v1.0/nthprime/152
+    http://127.0.0.1:5000/primes/api/v1.1/nthprime/152
 
 JSON response format:
 
@@ -50,7 +50,7 @@ Run application:
 
 Launch your web browser (FireFox) and type for example:
 
-    http://127.0.0.1:5000/primes/api/v1.0/nthprime/152
+    http://127.0.0.1:5000/primes/api/v1.1/nthprime/152
 
 You will receive a JSON response of:
     

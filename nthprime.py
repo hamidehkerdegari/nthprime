@@ -3,7 +3,7 @@ __author__ = "Saeid Mokaram"
 __copyright__ = "Copyright 2017"
 __credits__ = ["Saeid Mokaram"]
 __license__ = "GPL"
-__version__ = "1.1.1"
+__version__ = "1.1"
 __maintainer__ = "Saeid Mokaram"
 __email__ = "saeid.mokaram@gmail.com"
 __status__ = "Production"
@@ -16,7 +16,7 @@ app = Flask(__name__)
 primes_dict = {}    # Dictionary to store and fast-retrieve all primes for future use.
 
 
-@app.route('/primes/api/v1.0/nthprime/<int:nth>', methods=['GET'])
+@app.route('/primes/api/v'+__version__+'/nthprime/<int:nth>', methods=['GET'])
 def get_nthprime(nth):
     if nth <= 0 or nth > 10000000:   # Invalid input; Generating a 400 (Bad Request) JSON response.
         return make_response(jsonify({'error': 'Invalid Entry'}), 400)
