@@ -3,55 +3,55 @@ __author__ = "Saeid Mokaram"
 __copyright__ = "Copyright 2017"
 __credits__ = ["Saeid Mokaram"]
 __license__ = "GPL"
-__version__ = "1.1"
+__version__ = "1.1.1"
 __maintainer__ = "Saeid Mokaram"
 __email__ = "saeid.mokaram@gmail.com"
 __status__ = "Production"
 # ==============================================
 
 from flask import Flask, make_response, jsonify
-import time
+import time, math
 
-app = Flask(__name__)
-primes_dict = {}    # Dictionary to store and fast-retrieve all primes for future use.
+APP_REST = Flask(__name__)
+PRIMES_DICT = {}    # Dictionary to store and fast-retrieve all primes for future use.
 
 
-@app.route('/primes/api/v'+__version__+'/nthprime/<int:nth>', methods=['GET'])
+@APP_REST.route('/primes/api/v1.2/nthprime/<int:nth>', methods=['GET'])
 def get_nthprime(nth):
     if nth <= 0 or nth > 10000000:   # Invalid input; Generating a 400 (Bad Request) JSON response.
         return make_response(jsonify({'error': 'Invalid Entry'}), 400)
 
     start_time = time.time()    # Measuring the elapsed time
 
-    primes_dict[1] = 2  # First prime number.
-    primes_dict[2] = 3  # Second prime number.
+    PRIMES_DICT[1] = 2  # First prime number.
+    PRIMES_DICT[2] = 3  # Second prime number.
 
-    if nth in primes_dict:    # Check if nth prime has already calculated.
+    if nth in PRIMES_DICT:    # Check if nth prime has already calculated.
         elapsed_time = time.time() - start_time
-        return jsonify({'nthprime': primes_dict[nth], 'elapsed_time': elapsed_time})
+        return jsonify({'nthprime': PRIMES_DICT[nth], 'elapsed_time': elapsed_time})
     else:
-        m = max(primes_dict)    # The max calculated prime so far
-        pri_tmp = int(primes_dict[m]) + 2
-        for j in range(m, nth):
+        max_calced_prime = max(PRIMES_DICT)    # The max calculated prime so far
+        pri_tmp = int(PRIMES_DICT[max_calced_prime]) + 2
+        for j in range(max_calced_prime, nth):
             k = 1
-            while k <= j:   # Searching for next prime.
-                if pri_tmp % primes_dict[k] == 0:
+            while k <= j and k <= int(math.sqrt(pri_tmp)):   # Searching for next prime.
+                if pri_tmp % PRIMES_DICT[k] == 0:
                     pri_tmp+=2
                     k=1
                 else:
                     k+=1
-            primes_dict[j + 1]= pri_tmp
+            PRIMES_DICT[j + 1]= pri_tmp
             pri_tmp += 2
 
         elapsed_time = time.time() - start_time
-        return jsonify({'nthprime': primes_dict[nth], 'elapsed_time': elapsed_time})
+        return jsonify({'nthprime': PRIMES_DICT[nth], 'elapsed_time': elapsed_time})
 
 
-@app.errorhandler(404)  # Handeling errors by generating a 404 (Not Found) JSON response instead of default Flask HTML error message.
+@APP_REST.errorhandler(404)  # Handeling errors by generating a 404 (Not Found) JSON response instead of default Flask HTML error message.
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 # ==============================================
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=False)
+    APP_REST.run(host='0.0.0.0', debug=False)
