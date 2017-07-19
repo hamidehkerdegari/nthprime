@@ -34,7 +34,7 @@ def get_nthprime(nth):
         pri_tmp = int(PRIMES_DICT[max_calced_prime]) + 2
         for j in range(max_calced_prime, nth):
             k = 1
-            while k <= j and k <= int(math.sqrt(pri_tmp)):   # Searching for next prime.
+            while PRIMES_DICT[k] <= int(math.sqrt(pri_tmp)):   # Searching for next prime.
                 if pri_tmp % PRIMES_DICT[k] == 0:
                     pri_tmp+=2
                     k=1
