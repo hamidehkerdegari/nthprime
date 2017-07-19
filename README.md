@@ -1,6 +1,6 @@
 # NthPrime WebAPI
 - Finding the 'n'th prime number.
-- version: 1.0.1
+- version: 1.2.1
 - author: Saeid Mokaram
 - copyright: Copyright 2017
 - credits: Saeid Mokaram
@@ -18,11 +18,11 @@ The application can be called with a single argument, 'n' (which can be any inte
 
 The application implements a REST service that will reply the nth prime and elapsed_time (as a JSON data) via an HTTP GET method with a URL format of:
 
-    http://[hostname]:5000/primes/api/v1.0/nthprime/[n]
+    http://[hostname]:5000/primes/api/v1.2/nthprime/[n]
 
 example for running on local host:
 
-    http://127.0.0.1:5000/primes/api/v1.0/nthprime/152
+    http://127.0.0.1:5000/primes/api/v1.2/nthprime/152
 
 JSON response format:
 
@@ -50,7 +50,7 @@ Run application:
 
 Launch your web browser (FireFox) and type for example:
 
-    http://127.0.0.1:5000/primes/api/v1.0/nthprime/152
+    http://127.0.0.1:5000/primes/api/v1.2/nthprime/152
 
 You will receive a JSON response of:
     
@@ -58,7 +58,7 @@ You will receive a JSON response of:
     nthprime:    881
 
 # The implementation approach:
-Fact: Any number that is not prime is divisible by one prime that comes before it in the number series.
+Fact: Any number that is not prime is divisible by one prime that comes before its square root in the number series.
 Given n primes, we just need to check the divisibility of the numbers after the nth prime with all the n primes until finding the n+1th prime.
 
 For optimization purposes, all the calculated primes are stored in a Dictionary to be used for future queries.
