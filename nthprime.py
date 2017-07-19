@@ -10,7 +10,7 @@ __status__ = "Production"
 # ==============================================
 
 from flask import Flask, make_response, jsonify
-import time, math
+import time, math, multiprocessing
 
 APP_REST = Flask(__name__)
 PRIMES_DICT = {}    # Dictionary to store and fast-retrieve all primes for future use.
@@ -32,15 +32,15 @@ def get_nthprime(nth):
     else:
         max_calced_prime = max(PRIMES_DICT)    # The max calculated prime so far
         pri_tmp = int(PRIMES_DICT[max_calced_prime]) + 2
-        for j in range(max_calced_prime, nth):
+        for i in range(max_calced_prime, nth):
             k = 1
-            while PRIMES_DICT[k] <= int(math.sqrt(pri_tmp)):   # Searching for next prime.
+            while PRIMES_DICT[k] <= math.sqrt(pri_tmp):   # Searching for next prime.
                 if pri_tmp % PRIMES_DICT[k] == 0:
-                    pri_tmp+=2
-                    k=1
+                    pri_tmp += 2
+                    k = 1
                 else:
-                    k+=1
-            PRIMES_DICT[j + 1]= pri_tmp
+                    k += 1
+            PRIMES_DICT[i + 1]= pri_tmp
             pri_tmp += 2
 
         elapsed_time = time.time() - start_time
