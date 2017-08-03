@@ -41,12 +41,16 @@ Install Flask: http://flask.pocoo.org/docs/0.12/installation/
 
 Set permissions:
 
-    $ chmod a+x nthprime.py
+```sh
+$ chmod a+x nthprime.py
+```
 
 Run application:
     
-    $ ./nthprime.py~/anaconda3/bin/python nthprime.py 
-      * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+```sh
+$ ./nthprime.py~/anaconda3/bin/python nthprime.py 
+* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+```
 
 Launch your web browser (FireFox) and type for example:
 
@@ -67,3 +71,5 @@ For optimization purposes, all the calculated primes are stored in a Dictionary 
 All the calculated primes can be saved in a file for future use. So after re-running the application or transferring the application to other systems/servers, there will be no need for recalculating them.
 
 Finding the next prime requires comparing every new number with all the previously found primes. This process can be parallelized on a system with multiple cores (CPUs) by first, getting the number of CPUs on the local machine and then, dividing the search space of all the previously found primes. In the case that non of the processing threads find the number divisible by any of the previous primes, we have found the next prime number.
+
+---
